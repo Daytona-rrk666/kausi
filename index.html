@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Для Кауси 💗</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{min-height:100vh;overflow:hidden;display:grid;place-items:center;
+font-family:Arial,sans-serif;background:linear-gradient(135deg,#ffb1df,#ff69b4,#ffd1eb)}
+.container{position:relative;z-index:2;text-align:center;padding:24px;animation:appear 1.2s ease}
+h1{font-size:clamp(44px,10vw,100px);color:#fff;text-shadow:4px 5px 0 #d92b86,0 0 28px #fff;
+animation:bounce 2s infinite}
+.subtitle{margin-top:14px;font-size:clamp(25px,6vw,48px);font-weight:900;color:#fff;
+text-shadow:2px 3px 0 #d92b86}
+button{margin-top:30px;padding:15px 30px;border:0;border-radius:40px;background:#fff;color:#e63798;
+font-size:20px;font-weight:bold;cursor:pointer;box-shadow:0 7px 22px #d92b8666;transition:.2s}
+button:hover{transform:scale(1.08)}
+.float{position:absolute;bottom:-60px;pointer-events:none;animation:rise linear forwards}
+@keyframes rise{to{transform:translateY(-115vh) rotate(360deg);opacity:0}}
+@keyframes bounce{0%,100%{transform:scale(1)}50%{transform:scale(1.06) rotate(-2deg)}}
+@keyframes appear{from{opacity:0;transform:scale(.65)}to{opacity:1;transform:scale(1)}}
+</style>
+</head>
+<body>
+<main class="container">
+<h1>КАУСИ 💗</h1>
+<div class="subtitle">ТЫ КАКАШКА 💩</div>
+<button onclick="alert('Но мы тебя всё равно любим 💗')">Нажми сюда</button>
+</main>
+<script>
+const emojis=["💗","💕","💖","💩","✨"];
+function createFloat(){
+ const el=document.createElement("div");
+ el.className="float";
+ el.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+ el.style.left=Math.random()*100+"vw";
+ el.style.fontSize=(20+Math.random()*24)+"px";
+ const duration=4+Math.random()*5;
+ el.style.animationDuration=duration+"s";
+ document.body.appendChild(el);
+ setTimeout(()=>el.remove(),duration*1000);
+}
+setInterval(createFloat,300);
+</script>
+</body>
+</html>
